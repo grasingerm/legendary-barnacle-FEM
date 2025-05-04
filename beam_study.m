@@ -3,17 +3,18 @@
 
 E = 70e3;
 nu = 0.33;
-f0 = 1.0;
 t = 1.0;
 
-%hlratios = [1.0; 0.5; 0.1; 0.01];
-hlratios = [1.0; 0.5; 0.1];
+f0s = [1.0; 1.0; 0.1; 1e-5];
+hlratios = [1.0; 0.5; 0.1; 0.01];
+%hlratios = [1.0; 0.5; 0.1];
 
-nmax = 8;
+nmax = 4;
 
 for p = 1:length(hlratios)
   h = 1;
   l = h / hlratios(p)
+  f0 = f0s(p)
   vtip4FI = zeros(nmax, 1);
   vtip4RI = zeros(nmax, 1);
   vtip8FI = zeros(nmax, 1);
@@ -50,8 +51,8 @@ for p = 1:length(hlratios)
     C8 = max(max(Kg8)) * 10e3;
     Kg8 = penalty_bc(Kg8, bc_nodes8, C8);
 
-    C8RI = max(max(Kg8)) * 10e3;
-    Kg8RI = penalty_bc(Kg8RI, bc_nodes8, C8);
+    C8RI = max(max(Kg8RI)) * 10e3;
+    Kg8RI = penalty_bc(Kg8RI, bc_nodes8, C8RI);
 
     disp("Solve")
     q = Kg \ fg;
@@ -71,8 +72,11 @@ for p = 1:length(hlratios)
   disp(["p = ", num2str(p)])
   disp(['filename is plot-', num2str(p)])
   disp("Visualize")
-  plot(1:nmax, vtip4FI, 'r-', 1:nmax, vtip4RI, 'b--', 1:nmax, vtip8FI, 'g-.', 1:nmax, vtip8RI, 'kx')
-  legend('4 FI', '4 RI', '8 FI', '8 RI')
+  I = h^4/12;
+  analytical_solution = f0 * l^5 / (E*I) * (1/60 - 1/6 + 1/12 - 1/40);
+  aseries = ones(nmax, 1)*analytical_solution;
+  plot(1:nmax, vtip4FI, 'r-', 1:nmax, vtip4RI, 'b--', 1:nmax, vtip8FI, 'g-.', 1:nmax, vtip8RI, 'kx', 1:nmax, aseries, 'k-')
+  legend('4 FI', '4 RI', '8 FI', '8 RI', 'asoln')
   xlabel('# of elements')
   ylabel('q')
   title(['h / l = ', num2str(h/l)])
