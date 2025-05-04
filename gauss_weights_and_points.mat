@@ -1,0 +1,87 @@
+# Created by Octave 9.4.0, Sat Apr 05 23:29:31 2025 EDT <grasingerm@grasingerm-np5xnp6xnp7xpnkpnhpnj>
+# name: _GP1_
+# type: scalar
+0
+
+
+# name: _GP2_
+# type: matrix
+# rows: 2
+# columns: 1
+ -0.57735026918962584
+ 0.57735026918962584
+
+
+# name: _GP3_
+# type: matrix
+# rows: 3
+# columns: 1
+ -0.7745966692414834
+ 0
+ 0.7745966692414834
+
+
+# name: _GP4_
+# type: matrix
+# rows: 4
+# columns: 1
+ -0.33998099999999998
+ 0.33998099999999998
+ -0.86113600000000001
+ 0.86113600000000001
+
+
+# name: _GP5_
+# type: matrix
+# rows: 5
+# columns: 1
+ 0
+ -0.53846899999999998
+ 0.53846899999999998
+ -0.90617999999999999
+ 0.90617999999999999
+
+
+# name: _WT1_
+# type: scalar
+2
+
+
+# name: _WT2_
+# type: matrix
+# rows: 2
+# columns: 1
+ 1
+ 1
+
+
+# name: _WT3_
+# type: matrix
+# rows: 3
+# columns: 1
+ 0.55555555555555558
+ 0.88888888888888884
+ 0.55555555555555558
+
+
+# name: _WT4_
+# type: matrix
+# rows: 4
+# columns: 1
+ 0.65214499999999997
+ 0.65214499999999997
+ 0.34785500000000003
+ 0.34785500000000003
+
+
+# name: _WT5_
+# type: matrix
+# rows: 5
+# columns: 1
+ 0.56888899999999998
+ 0.47862900000000003
+ 0.47862900000000003
+ 0.236927
+ 0.236927
+
+
